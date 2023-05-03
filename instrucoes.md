@@ -9,6 +9,9 @@
 ### 2- Acessar cada questão e extrair as seguintes informações:
     - id: 
     - tipo:
-    - Alternativas erradas.
-    - ALternativas corretas.
+    - Alternativas erradas:
+        Ex: Alternativas erradas: A, B, C
+    - ALternativas corretas:
+        Ex: Alternativas corretas: D
     - Imagens (se tiver)
+    - Tipo de FeedBack:
