@@ -15,5 +15,15 @@ $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write(json_encode($aulas));
     return $response->withHeader("Content-Type", 'application/json');
 });
+
+$app->get('/aula/{aula}', function (Request $request, Response $response, $args) {
+    
+    $aula = new Aula();
+    $aulas = $aula->listarConteudoAula($args['aula']);
+
+    $response->getBody()->write(json_encode($aulas));
+    return $response->withHeader("Content-Type", 'application/json');
+});
+
 $app->setBasePath('/ams');
 $app->run();

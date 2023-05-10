@@ -13,4 +13,9 @@ class Aula {
     }
     return $aulas;
   }
+
+  public function listarConteudoAula($dirAula) {
+
+    return [$dirAula];
+  }
 }
