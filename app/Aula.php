@@ -33,5 +33,7 @@ class Aula {
   {
     // gerar um hash com o algoritmo sha256
     // returna o hash criado.
+    $conteudoHash = hash("sha256", $conteudo);
+    return $conteudoHash;
   }
 }

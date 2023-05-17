@@ -34,6 +34,15 @@ $app->get('/dados-aulas', function (Request $request, Response $response, $args)
     return $response->withHeader("Content-Type", 'application/json');
 });
 
+$app->get('/hash/{aula}', function (Request $request, Response $response, $args) {
+    
+    $aula = new Aula();
+    $dados = $aula->criarHash($args['aula']);
+
+    $response->getBody()->write(json_encode($dados));
+    return $response->withHeader("Content-Type", 'application/json');
+});
+
 // 
 // Criar uma api que receba do usuario uma string
 // e retorne o hash dessa string
