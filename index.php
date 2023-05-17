@@ -16,14 +16,27 @@ $app->get('/', function (Request $request, Response $response, $args) {
     return $response->withHeader("Content-Type", 'application/json');
 });
 
-$app->get('/aula/{aula}', function (Request $request, Response $response, $args) {
+$app->get('/aula/{nome}', function (Request $request, Response $response, $args) {
     
     $aula = new Aula();
-    $aulas = $aula->listarConteudoAula($args['aula']);
+    $resultado = $aula->listarConteudoAula($args['nome']);
 
-    $response->getBody()->write(json_encode($aulas));
+    $response->getBody()->write($resultado);
     return $response->withHeader("Content-Type", 'application/json');
 });
+
+$app->get('/dados-aulas', function (Request $request, Response $response, $args) {
+    
+    $aula = new Aula();
+    $dados = $aula->lerDadosAulas();
+
+    $response->getBody()->write($dados);
+    return $response->withHeader("Content-Type", 'application/json');
+});
+
+// 
+// Criar uma api que receba do usuario uma string
+// e retorne o hash dessa string
 
 $app->setBasePath('/ams');
 $app->run();
