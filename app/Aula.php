@@ -15,7 +15,7 @@ class Aula {
   }
 
   public function listarConteudoAula($dirAula) {
-
-    return [$dirAula];
+    $conteudo =  scandir("aulas/".$dirAula);
+    return $conteudo;
   }
 }
